@@ -12,7 +12,7 @@
         <a class="back__link" href="../index.html">⇦ Voltar para Home</a>
     </div>
 
-    <div class="main">
+    <div class="main" id="conexao">
         <section class="main__conect alinharCentro">
             <div class="main__conectBox alinharCentro">
                 <h1>Player</h1>
@@ -35,26 +35,7 @@
     </div>
 
 
-
-
     <script src="../scripts/client.js"></script>
-
-    <script>
-        // Função para obter o valor do parâmetro de consulta "origem"
-        function getQueryParam(name) {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(name);
-        }
-
-        const img = document.getElementById("imgGame");
-
-        // Verifica se o parâmetro de consulta "origem" é "pagina1"
-        const origem = getQueryParam("game");
-        if (origem === "1") {
-            img.src = "../imagens/pong2.png";
-        }
-    </script>
-
     
 
 </body>

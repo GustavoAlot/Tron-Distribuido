@@ -53,21 +53,23 @@ body {
 
 .main__conectBox
 {
-    width: 65%;
+    width: 60%;
     gap: 12px;
-    padding: 16vh 1vw;
-    background-color: rgba(0, 0, 0, 0.5);
+    padding: 14vh 1vw;
+    background-color: rgba(0, 32, 51, 0.5);
     box-shadow: 5px 7px 25px rgba(255, 0, 212, 0.400);
     border-radius: 35px;
+    border: 6px rgb(201, 201, 201) solid;
 }
 
 .main__conectBox__p{
     font-size: 14px;
     text-align: center;
 }
-/* .main__form {
-} */
 
+.main__form {
+    margin-bottom: 2vh;
+}
 
 .foto {
     height: 80vh;
@@ -81,7 +83,7 @@ body {
     margin: 7px;
     padding: 7px;
     border-radius: 10px;
-    border: 2px rgb(0, 11, 68) solid;
+    border: 2px rgb(196, 206, 250) solid;
     background-color: rgba(255, 100, 229, 0.15);
     color: rgb(201, 201, 201);
 }
