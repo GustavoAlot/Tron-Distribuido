@@ -26,7 +26,7 @@ body {
     width: 20vw;
     padding: 10px;
     border-radius: 12px;
-    margin: 15px auto 0 auto;
+    margin: 15px auto 15px auto;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -99,4 +99,20 @@ body {
 .main__conectBox__mnsg{
     text-align: center;
     font-size: 12px;
+}
+
+.game{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.game__div{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    /* background-color: rgba(255, 145, 0, 0.774); */
+    background-image: linear-gradient(to right, rgb(0, 1, 71),rgb(22, 0, 43));
+    gap: 10px;
+    padding: 15px 0 50px 0;
 }

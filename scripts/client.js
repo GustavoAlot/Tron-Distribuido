@@ -2,6 +2,7 @@
 // SCRIPT PARA SABER QUAL IMAGEM CARREGAR NA TELA
 
 const img = document.getElementById("imgGame");
+document.getElementById("game").style.display = "none";
 
 // Verifica se o parâmetro de consulta "origem" é "pagina1"
 const origem = getQueryParam("game");
@@ -28,6 +29,7 @@ function desaparecer() {
 let HOST; // = 'ws://x:3000'; // Endereço do servidor WebSocket
 let socket; // = new WebSocket(HOST);
 var conexao = false;
+let numCliente;
 
 
 function obterEnderecoIP(){
@@ -63,6 +65,12 @@ function fio1()
       // Seleciona o elemento <nav> pelo seu ID
       var navElement = document.getElementById("message");
       navElement.innerHTML = "Mensagem do server: " + message;
+
+      playGame(message);
+
+      if(`${message}`.split(" ")[0] == "Pos:"){
+        atualizaRival(message);
+      }
     };
     
     
@@ -81,11 +89,33 @@ function fio1()
 }
 
 
-function envia(){
-    let msg = yPlay + " " + yAi;
-    socket.send(msg);
+// verifica se recebeu a mensagem sinalizando inicio. Se recebeu, limpa os elemenos da tela
+function playGame(mensagem)
+{
+  if(`${mensagem}`.split(" ")[0] == 'Bora'){
+
+    numCliente = `${mensagem}`.split(" ")[2]; //
+    console.log(numCliente);
+
+    document.getElementById("conexao").style.display = "none";
+    document.getElementById("game").style.display = "block";
+    if(origem == "1"){
+      carregarPong();
+      document.getElementById("instrucao").innerHTML = "Controle o player usando as teclas W S";
+    }
+    if(origem == "2"){
+      setNumPlayer(numCliente);
+      carregarTron();
+      //setInterval(envia, 25);
+      document.getElementById("instrucao").innerHTML = "Controle o player usando as teclas W A S D";
+    }
+  }
 }
 
+function enviaPos(){
+  //let msg = yPlay + " " + yAi;
+  socket.send('tron ' + getPosition());
+}
 
 
 
