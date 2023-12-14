@@ -30,6 +30,7 @@ let HOST; // = 'ws://x:3000'; // Endereço do servidor WebSocket
 let socket; // = new WebSocket(HOST);
 var conexao = false;
 let numCliente;
+var salaDoGame;
 
 
 function obterEnderecoIP(){
@@ -70,6 +71,13 @@ function fio1()
 
       if(`${message}`.split(" ")[0] == "Pos:"){
         atualizaRival(message);
+      }
+      else if(`${message}`.split(" ")[0] == "Sala"){
+        salaDoGame = `${message}`.split(" ")[1];
+        console.log("Sou da seguinte sala: " + salaDoGame);
+      }
+      else if(message == 'Terminar exec'){
+        location.reload();
       }
     };
     
@@ -114,7 +122,7 @@ function playGame(mensagem)
 
 function enviaPos(){
   //let msg = yPlay + " " + yAi;
-  socket.send('tron ' + getPosition());
+  socket.send('tron ' + salaDoGame +  ' ' + getPosition());
 }
 
 

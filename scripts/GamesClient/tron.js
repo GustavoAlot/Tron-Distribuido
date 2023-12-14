@@ -70,7 +70,7 @@ async function update() {
 
 
     if (player1.checkCollision(player2.trail) || player2.checkCollision(player1.trail)) {
-        await sleep(700);
+        //await sleep(700);
         reiniciar = true;
         restartTron();
         
